@@ -23,7 +23,7 @@ export default function OrderForm(props) {
     return (
         <form onSubmit={onSubmit}>
             <h2>Make a Pizza, MF</h2>
-            <button disabled={disabled}>Submit</button>
+            <button id='submitBtn' disabled={disabled}>Submit</button>
 
             <div>
                 <div>{errors.name}</div>
@@ -85,6 +85,15 @@ export default function OrderForm(props) {
                         />
                     </label>
                 </div>
+                <label>Additional instructions?
+                <input 
+                        value={values.additionalInstructions}
+                        onChange={onChange}
+                        name='additionalInstructions'
+                        type='text'
+                        placeholder='Let us know anything else here. . .'
+                    />
+                </label>
             </div>
         </form>
     );

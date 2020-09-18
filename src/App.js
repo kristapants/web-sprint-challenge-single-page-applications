@@ -10,12 +10,17 @@ import OrderConfirmation from './components/OrderConfirmation'
 const initialFormValues = {
   name: '',
   size: '',
+  pepperoni: false,
+  extraCheese: false,
+  chicken: false,
+  anchovies: false,
+  additionalInstructions: '',
 }
 const initialFormErrors = {
   name: '',
   size: '',
 }
-const initialOrder = {name:'', size:''}
+const initialOrder = {name:'', size:'', toppings:[], additionalInstructions:''}
 const initialDisabled = true
 
 export default function App() {
@@ -74,6 +79,8 @@ export default function App() {
     const newOrder = {
       name: formValues.name,
       size: formValues.size,
+      toppings: ['pepperoni', 'extraCheese', 'anchovies', 'chicken'].filter(toppings => formValues[toppings]),
+      additionalInstructions: formValues.additionalInstructions,
     }
     postNewOrder(newOrder)
     history.push('/orderform/orderconfirmation')
